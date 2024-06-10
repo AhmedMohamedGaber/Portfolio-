@@ -10,6 +10,42 @@
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Steller main styles -->
 	<link rel="stylesheet" href="assets/css/steller.css">
+	 <script>
+        function sendContactMessage(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const data = {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message
+            };
+
+            fetch('https://plantdiseasexapi.runasp.net/api/contactus', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Message sent successfully!');
+                // Clear the form fields
+                document.getElementById('contactForm').reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error sending message.');
+            });
+        }
+    </script>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
