@@ -156,7 +156,7 @@
                 message: message
             };
         
-            fetch('https://plantdiseasexapi.runasp.net/api/contactus', {
+            fetch('https://plantdiseasexapi.runasp.net/api/D_ContactUs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -190,9 +190,9 @@
 async function fetchData() {
     try {
         const responses = await Promise.all([
-            fetch('https://plantdiseasexapi.runasp.net/api/newsArticle/21'),
-            fetch('https://plantdiseasexapi.runasp.net/api/newsArticle/22'),
-            fetch('https://plantdiseasexapi.runasp.net/api/newsArticle/23')
+            fetch('https://plantdiseasexapi.runasp.net/api/C_NewsArticle/21'),
+            fetch('https://plantdiseasexapi.runasp.net/api/C_NewsArticle/22'),
+            fetch('https://plantdiseasexapi.runasp.net/api/C_NewsArticle/23')
         ]);
 
         const dataPromises = responses.map(response => response.json());
